@@ -1,56 +1,64 @@
-# Fuji Industries
+<div align="center">
 
-Local electronics retail/wholesale ERP using Laravel, MariaDB, Blade and Bootstrap. Implemented modules include master data/imports, purchase orders and GRN, weighted-average inventory, sales/POS, customer receipts, allocations, advances, customer ledgers and receivables aging.
+# Supun ERP — Fuji Industries
 
-## Current environment
+**Retail & wholesale ERP for day-to-day business operations**
 
-- Project: `D:\Local Repository\Supun-ERP`
-- Detected XAMPP: `D:\Software\Xammp`
-- PHP 8.0.30, MariaDB 10.4.32
-- Laravel 9.52 (compatibility choice)
+<img src="https://img.shields.io/badge/Laravel-9-FF2D20?style=flat-square&logo=laravel&logoColor=white" alt="Laravel" />
+<img src="https://img.shields.io/badge/PHP-8.0-777BB4?style=flat-square&logo=php&logoColor=white" alt="PHP" />
+<img src="https://img.shields.io/badge/MariaDB-10.4-003545?style=flat-square&logo=mariadb&logoColor=white" alt="MariaDB" />
+<img src="https://img.shields.io/badge/Bootstrap-UI-7952B3?style=flat-square&logo=bootstrap&logoColor=white" alt="Bootstrap" />
 
-> Security: PHP 8.0 and Laravel 9 are end-of-life, and the locked compatibility dependencies have reported advisories. Do not expose this build to a network or use it for live data. Upgrade XAMPP/PHP and Laravel before production.
+</div>
 
-## XAMPP installation
+---
 
-1. Start Apache and MySQL from the XAMPP control panel.
-2. Create a UTF-8 database: `CREATE DATABASE supun_erp CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;`.
-3. Copy `.env.example` to `.env` and set `APP_NAME="Fuji Industries"`, `APP_URL=http://localhost/Supun-ERP/public`, database name `supun_erp`, user and password.
-4. Run Composer using XAMPP PHP (commands below), generate the key, then migrate/seed.
-5. Either place/copy the project under XAMPP `htdocs`, create a directory junction, or configure an Apache virtual host whose `DocumentRoot` is this project's `public` folder. Enable `mod_rewrite` and allow overrides for the public directory.
+## Overview
 
-Example virtual host:
+A local ERP system for **electronics retail and wholesale operations**. It brings purchasing, inventory, sales and customer finance into one system.
 
-```apache
-<VirtualHost *:80>
-    ServerName supun-erp.local
-    DocumentRoot "D:/Local Repository/Supun-ERP/public"
-    <Directory "D:/Local Repository/Supun-ERP/public">
-        AllowOverride All
-        Require all granted
-    </Directory>
-</VirtualHost>
+## Main Modules
+
+- Product and master data
+- Purchase Orders and GRN
+- Inventory with weighted-average costing
+- Sales and POS
+- Customer receipts and allocations
+- Customer advances
+- Customer ledgers
+- Receivables aging
+
+## Business Flow
+
+```text
+Purchase → Receive Stock → Sell → Receive Payment → Allocate → Track Balance
 ```
 
-Add `127.0.0.1 supun-erp.local` to the Windows hosts file as Administrator, then restart Apache.
+## Local Setup
 
-### This computer's port 3306 conflict
-
-The Windows service `MySQL80` currently owns port 3306, so XAMPP MariaDB cannot use its default port. Before running MariaDB migrations, choose one configuration: stop/disable `MySQL80` and start XAMPP MariaDB on 3306, or configure XAMPP MariaDB for another port (for example 3307) and set `DB_PORT=3307` in `.env`. Do not run two servers on the same port. The foundation migrations were verified against an isolated SQLite database because the existing MySQL 8 root account uses `caching_sha2_password`, unsupported by the old XAMPP MariaDB client.
-
-## Commands
+1. Start Apache and MySQL/MariaDB in XAMPP.
+2. Copy `.env.example` to `.env`.
+3. Configure the database.
+4. Install dependencies and run migrations.
 
 ```powershell
-& 'D:\Software\Xammp\php\php.exe' 'C:\ProgramData\ComposerSetup\bin\composer.phar' install
-& 'D:\Software\Xammp\php\php.exe' artisan key:generate
-& 'D:\Software\Xammp\php\php.exe' artisan migrate --seed
-& 'D:\Software\Xammp\php\php.exe' artisan test
+composer install
+php artisan key:generate
+php artisan migrate --seed
+php artisan test
 ```
 
-Development login: `admin@supun-erp.local` / `ChangeMe!2026`. Change it immediately; it is a temporary seed password.
+## Documentation
 
-## Backups
+- `DEVELOPMENT_PLAN.md`
+- `DATABASE_DESIGN.md`
+- `MODULES.md`
+- `RELEASE_CHECKLIST.md`
 
-Until the in-app backup module is built, schedule `mysqldump` daily to a local backup directory and copy a daily/weekly encrypted backup to another device or approved off-PC destination. Test restoration regularly; never rely on one disk.
+> **Note:** This project currently uses PHP 8.0 and Laravel 9 for local compatibility. Upgrade the stack before using it as a production system.
 
-See [DEVELOPMENT_PLAN.md](DEVELOPMENT_PLAN.md), [DATABASE_DESIGN.md](DATABASE_DESIGN.md), and [MODULES.md](MODULES.md).
+---
+
+<div align="center">
+  <b>Inventory • Sales • Finance • Operations</b>
+</div>
