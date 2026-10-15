@@ -2,62 +2,49 @@
   <img src="readme-banner.svg" width="100%" alt="Supun ERP" />
 </p>
 
-<p align="center"><b>A business operations system for electronics retail and wholesale workflows.</b></p>
+<p align="center"><b>Purchasing • inventory • sales • receivables in one connected ERP flow</b></p>
 
 <p align="center">
   <img src="https://img.shields.io/badge/Laravel-9-FF2D20?style=flat-square&logo=laravel&logoColor=white" alt="Laravel" />
   <img src="https://img.shields.io/badge/PHP-8.0-777BB4?style=flat-square&logo=php&logoColor=white" alt="PHP" />
   <img src="https://img.shields.io/badge/MariaDB-10.4-003545?style=flat-square&logo=mariadb&logoColor=white" alt="MariaDB" />
-  <img src="https://img.shields.io/badge/Bootstrap-UI-7952B3?style=flat-square&logo=bootstrap&logoColor=white" alt="Bootstrap" />
 </p>
 
----
+## ✦ ERP Module Map
 
-## Project Snapshot
+<p align="center">
+  <img src="readme-modules.svg" width="96%" alt="Supun ERP module overview" />
+</p>
 
-| | |
-|---|---|
-| **Business problem** | Purchasing, stock, sales and customer balances need one connected system. |
-| **Solution** | A Laravel ERP that joins inventory, sales and receivables in one workflow. |
-| **Business area** | Electronics retail + wholesale. |
-| **Main focus** | Operational accuracy, traceability and financial visibility. |
-
-## Business Flow
+## ✦ End-to-End Business Flow
 
 <p align="center">
   <img src="readme-flow.svg" width="96%" alt="Supun ERP purchase to receivables business flow" />
 </p>
 
-## Main Modules
+## What It Solves
 
-| Operations | Finance & Control |
-|---|---|
-| Product & master data | Customer receipts |
-| Purchase Orders | Payment allocations |
-| GRN / stock receiving | Customer advances |
-| Weighted-average inventory | Customer ledgers |
-| Sales / POS | Receivables aging |
+The ERP connects the operational journey from purchasing stock to receiving customer payments, giving better traceability across inventory and finance.
 
-## What This Project Demonstrates
-
-- Mapping a connected purchase-to-payment business process
-- Managing stock movement and weighted-average inventory costing
-- Linking sales with receipts, allocations and customer balances
-- Separating operational modules while keeping one end-to-end workflow
-- Using project, database, module and release documentation together
-
-## Engineering Focus
-
+### Main Modules
+- Product and master data
+- Purchase Orders + GRN
 - Weighted-average inventory costing
-- Purchase-to-stock traceability
-- Sales and customer balance tracking
-- Structured database design and migrations
-- Seeded development environment
-- Automated Laravel tests
+- Sales / POS
+- Customer receipts and allocations
+- Customer advances and ledgers
+- Receivables aging
+
+## Why This Project Matters
+
+- Connects stock movement with financial balances
+- Tracks purchase-to-sale operations clearly
+- Uses structured database design and migrations
+- Includes project, database, module and release documentation
 
 ## Repository Context
 
-This repository is a **forked/collaborative codebase**. For interview discussion, individual work should be explained using the repository's commit and collaboration history rather than treating the full codebase as single-author work.
+This is a **forked/collaborative codebase**. Individual contribution should be explained using commit and collaboration history rather than presenting the full codebase as single-author work.
 
 ## Run Locally
 
@@ -68,17 +55,10 @@ php artisan migrate --seed
 php artisan test
 ```
 
-Configure `.env` with the local MariaDB connection before running migrations.
+## Documentation
 
-## Project Documentation
-
-- [`DEVELOPMENT_PLAN.md`](DEVELOPMENT_PLAN.md) — implementation roadmap
-- [`DATABASE_DESIGN.md`](DATABASE_DESIGN.md) — database structure
-- [`MODULES.md`](MODULES.md) — module scope
-- [`RELEASE_CHECKLIST.md`](RELEASE_CHECKLIST.md) — release checks
-
-> **Development note:** the current local compatibility stack uses PHP 8.0 and Laravel 9. A production deployment should first upgrade to supported versions.
+[`DEVELOPMENT_PLAN.md`](DEVELOPMENT_PLAN.md) · [`DATABASE_DESIGN.md`](DATABASE_DESIGN.md) · [`MODULES.md`](MODULES.md) · [`RELEASE_CHECKLIST.md`](RELEASE_CHECKLIST.md)
 
 ---
 
-<p align="center"><b>From purchase order to customer balance — one connected operational flow.</b></p>
+<p align="center"><b>Purchase → stock → sale → payment → customer balance.</b></p>
